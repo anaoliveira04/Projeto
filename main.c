@@ -1,4 +1,4 @@
-//declara as bibliotecas 
+//adiciona as bibliotecas 
 #include <stdio.h>
 #include <locale.h>
 #include <string.h>
@@ -15,7 +15,7 @@ void cadastro()
         wprintf(L"ERRO! Arquivo não foi aberto!\n");
     }
 
-    else
+    else //se o arquivo foi aberto
     {
         //declara as variáveis que vão guardar a senha e o usuário 
         char usuario[30];
@@ -43,22 +43,22 @@ void login()
     arquivo1 = fopen("cadastro.txt", "r"); //abre o arquivo cadastro em modo leitura
     
 
-    if(arquivo1 == NULL)
+    if(arquivo1 == NULL) //verifica se o arquivo cadastro foi aberto
     {
         wprintf(L"ERRO! Arquivo não foi aberto!\n");
         return;
     }
 
-    FILE *arquivo2;
+    FILE *arquivo2; 
     arquivo2 = fopen("login.txt", "w"); //abre o arquivo login em modo edição
 
-    if(arquivo2 == NULL)
+    if(arquivo2 == NULL) //verifica se o arquivo login foi aberto
     {
         wprintf(L"ERRO! Arquivo não foi aberto!\n");
         return;
     }
 
-    //declara as variáveis que vão armazenar usuário e login do menu
+    //declara as variáveis que vão armazenar usuário e senha do login
     char user[30];
     char password[30];
     char usuario_cadastro[30], senha_cadastro[30]; //vão armazenar o usuário e senha lidos no arquivo cadastro
@@ -126,11 +126,11 @@ int main()
     setlocale(LC_ALL, "Portuguese"); //permite acento
 
     FILE *arquivo1; 
-    arquivo1 = fopen("cadastro.txt", "a"); //cria o arquivo no computador
+    arquivo1 = fopen("cadastro.txt", "a"); //cria o arquivo cadastro no computador
     fclose(arquivo1); //fecha o arquivo
 
     FILE *arquivo2;
-    arquivo2 = fopen("login.txt", "a"); //cria o arquivo no computador
+    arquivo2 = fopen("login.txt", "a"); //cria o arquivo login no computador
     fclose(arquivo2); //fecha o arquivo
 
     menu(); //chama a função menu 
